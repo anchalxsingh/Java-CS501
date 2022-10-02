@@ -1,0 +1,66 @@
+/**
+*Anchal Singh
+*CS 501 WS2
+*Project 1 Java,Invoice, calculate total cost of the meal delivered
+*/
+
+	import javax.swing.JOptionPane;    // Needed for Dialog Box
+
+	import javax.swing.JTextArea;
+
+
+	public class invoice
+	{
+	   public static void main(String[] args)
+	   {
+		  //TODO Auto generated method stub
+		   
+		   //Variables
+		   String str;
+		   double subtotal;
+		   double tax;
+		   double tip;
+		   double deliveryfee;
+		   double due_amt;
+		   double tip1;
+		   double tip2;
+		   double tip3;
+		   
+		   
+	      //Get the user's name.
+	      str = JOptionPane.showInputDialog("Welcome to the delivery calculator! \n \n Please Enter your name: ");
+	       
+          //get the amount
+	      
+	      str = JOptionPane.showInputDialog("Hello " + str + " student \n \n Enter the subtotal amount:$  ");
+	      subtotal = Double.parseDouble(str);
+	      
+	      //delivery fee		
+	      deliveryfee = (0.1 * subtotal);
+	      
+	      //tax rate
+	      tax = (0.065 * subtotal);
+	      
+	      //Tip Amounts
+	      tip1 = 0.15 * subtotal;
+		  tip2 = 0.20 * subtotal;
+		  tip3 = 0.25 * subtotal;
+
+	      str = JOptionPane.showInputDialog( "Suggested Tip Amounts: \n \n" + "15% = $" + String.format("%,.2f", tip1) + " \n " + "20% = $" + String.format("%,.2f", tip2)  + " \n " + "25% = $" + String.format("%,.2f", tip3) + "\n \n"  + "Enter the tip % ");
+	      tip = Double.parseDouble(str);
+	      tip =(tip/100) * subtotal;
+	     
+	      
+	     //total due amount
+	      due_amt = subtotal + tax + deliveryfee + tip ;
+	      
+	      //Display message
+	      JTextArea text = new JTextArea ("Your Delivery cost \n \n Subtotal = $ \t \t" + String.format("%,.2f", subtotal) + "\n Tax= \t \t" + String.format("%,.2f", tax) + "\n Delivery fee= \t" + String.format("%,.2f", deliveryfee) + "\n Tip Amount= \t" + String.format("%,.2f",tip) + "\n ------------ \n Total Due =$ \t" + String.format("%,.2f",due_amt));
+	      text.setBorder(null);
+		  text.setOpaque(false);
+		  JOptionPane.showMessageDialog(null, text);
+
+	   }
+	}
+
+
